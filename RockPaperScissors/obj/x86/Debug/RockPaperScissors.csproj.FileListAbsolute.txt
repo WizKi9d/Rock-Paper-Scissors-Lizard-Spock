@@ -1,0 +1,5 @@
+/Users/student/Projects/RockPaperScissors/RockPaperScissors/bin/Debug/RockPaperScissors.exe
+/Users/student/Projects/RockPaperScissors/RockPaperScissors/bin/Debug/RockPaperScissors.pdb
+/Users/student/Projects/RockPaperScissors/RockPaperScissors/obj/x86/Debug/RockPaperScissors.csproj.CoreCompileInputs.cache
+/Users/student/Projects/RockPaperScissors/RockPaperScissors/obj/x86/Debug/RockPaperScissors.exe
+/Users/student/Projects/RockPaperScissors/RockPaperScissors/obj/x86/Debug/RockPaperScissors.pdb
