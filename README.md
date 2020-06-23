@@ -17,3 +17,4 @@ The game displays the following at the end:
 Added:
  * Enum for choices.
  * Removed the need for Switch when getting the most used move (call: (enum)position)
+ * Static class responses for getting back response text
