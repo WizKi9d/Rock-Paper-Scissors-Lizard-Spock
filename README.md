@@ -14,3 +14,7 @@ The game displays the following at the end:
  * How many turns the game took.
  * Most used move during the game.
  
+Added:
+ * Enum for choices.
+ * Removed the need for Switch when getting the most used move (call: (enum)position)
+ * Static class responses for getting back response text
