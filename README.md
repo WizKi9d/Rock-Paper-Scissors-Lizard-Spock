@@ -22,7 +22,7 @@ Added:
 
 *QUESTIONS: (Explained in a way my girlfriends mum understood)*
 
-**Purpose of an interface (in real english):**
+# Purpose of an interface (in real english): 
 Let's imagine cooking a dinner.
 You have class that stores all your dinners where you give each one: ingredients, prep time and cooking time. You then know that each dinner has to be cooked. This makes 'Cooking dinner' a general idea. However, It's different for each dinner. So now you make an interface that has the generalised idea of 'cooking dinner' and then each dinner in the class then has a way to 'cook dinner' in it's own way because it's different for each one. For example some take longer than others or have different ingredients and steps.
 Now when you want to cook dinner, imagine that you have a robot that cooks dinner for you and he already has a class with all the dinners and their properties (e.g ingredients, prep and cooking time. 
