@@ -2,7 +2,7 @@
 My version of the game written in C# .Net
 
 The game follows the rules of:
- * Uses 1(rock), 2(paper), 3(scissors), 4(lizard) and 5(spock) to choose your move.
+ * Uses 1 (rock), 2 (paper), 3 (scissors), 4 (lizard) and 5 (spock) to choose your move.
  * Uses user input of 'yes' to play another game.
  * Uses || or check for 2 different results in order for the player (you) to win a round.
  * Uses Console.Clear() to make the game cleaner and easier to play.
