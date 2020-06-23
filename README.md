@@ -43,5 +43,6 @@ All the access modifiers in c# are: private, public, protected, internal, protec
  * If we use 'private protected' it's once again a combination meaning the data cannot be accessed from a different assembly (different project) but it can be accessed where the data is defined and from anywhere that inherits the class the data was defined.
  
 **What is circular dependancy (in real english):**
- 
+ A circular dependancy means that there are two things. Each depends on the other to work. 
+ If you think about a chicken. It lays an egg. So the chicken is one thing and the egg is the second. The egg depends on the chicken and the chicken depends on the egg because if it's never an egg then it can't be a chicken. This is an issue because if you get a circular dependancy somewhere in your code you can't run it as they will both depend on each other and neither will work. 
 
