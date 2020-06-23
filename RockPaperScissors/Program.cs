@@ -99,7 +99,7 @@ namespace RockPaperScissors
                                     playerScore++;
                                 } else {
                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.WriteLine(Responses.ComputerWin);
+                                    Console.WriteLine(Responses.ComputerWinRound);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     computerScore++;
                                     // See if the computer has won
@@ -130,13 +130,12 @@ namespace RockPaperScissors
                 // If playerscore is less than 3 the computer won.
                 if (playerScore < 3) {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\n\nSorry, I won. Better luck next time!\n");
+                    Console.WriteLine(Responses.ComputerWin);
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("It took me only {0} rounds to win!", Convert.ToString(gameLength));
                 } else {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\n\nYOU WON!");
-                    Console.WriteLine("Maybe I'll do better next time.\n");
+                    Console.WriteLine(Responses.PlayerWin + Responses.ComputerSadMessage);
                     Console.ForegroundColor = ConsoleColor.White; 
                     Console.WriteLine("It took you only {0} rounds to win!", Convert.ToString(gameLength));
                 }
@@ -146,9 +145,9 @@ namespace RockPaperScissors
                 Console.WriteLine("The most common move was: {0}", mostUsedMoveString);
 
                 // While looks for 'yes'
-                Console.WriteLine("\nWould you like to continue playing? ('yes' or 'no')");
+                Console.WriteLine(Responses.ContinueGame);
 
-            } while (Console.ReadLine() == "yes");
+            } while ((Console.ReadLine()).ToLower() == "yes");
         }
     }
 }
