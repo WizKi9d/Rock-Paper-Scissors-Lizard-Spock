@@ -7,25 +7,27 @@ namespace RockPaperScissors
 {
     class MainClass
     {
-        public static string getMostUsedMove(int[] mostUsedMove) {
+
+        public enum Choices {
+            Rock,
+            Paper,
+            Scissors,
+            Lizard,
+            Spock
+        }
+
+        public static string GetMostUsedMove(int[] mostUsedMove) {
 
             int highestValue = mostUsedMove.Max();
             int indexHighestValue = mostUsedMove.ToList().IndexOf(highestValue);
 
-            if (indexHighestValue == 0) {
-                return "rock";
-            } else if (indexHighestValue == 1) {
-                return "paper";
-            } else if (indexHighestValue == 2) {
-                return "scissors";
-            } else if (indexHighestValue == 3) {
-                return "lizard";
-            } else { return "spock"; }
+            return Convert.ToString((Choices)indexHighestValue);
+
         }
 
-        public static void displayUserWin() {
+        public static void DisplayUserWin() {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\nYou win this round, one point to you!");
+            Console.WriteLine(Responses.RoundWin);
             Console.ForegroundColor = ConsoleColor.White;
         }
 
@@ -34,20 +36,18 @@ namespace RockPaperScissors
             // Disable curson highlight whilst the intro shows
             Console.CursorVisible = false;
 
-            Console.WriteLine("\nRock, Paper, Scissors, Lizard, Spock");
+            Console.WriteLine("\nRock Paper Scissors Lizard Spock");
             Thread.Sleep(700);
             Console.WriteLine("Made by Alex Wzorek.\n");
             Thread.Sleep(1200);
 
-            string[] choices = new string[5] { "rock", "paper", "scissors", "lizard", "spock" };
-
             //See if the user wants to continue, continue with while
             do {
                 Console.Clear();
-                Console.WriteLine("\nI challenge you to rock, paper, scissors. May the best win!\n");
+                Console.WriteLine("\nI challenge you to rock, paper, scissors, lizard, spock. May the best win!\n");
                 Thread.Sleep(700);
 
-                // [0] = rock, [1] = paper, [2] = scissors
+                // [0] = rock, [1] = paper, [2] = scissors, [3] = lizard, [4] = spock
                 int[] mostUsedMove = new int[5] { 0, 0, 0, 0, 0 };
 
                 int playerScore = 0;
@@ -63,14 +63,14 @@ namespace RockPaperScissors
                     int computerChoiceNum = rand.Next(0, 5);
 
                     Console.CursorVisible = true;
-                    Console.WriteLine("Rock, Paper, Scissors, Lizard or Spock? (1, 2, 3, 4 or 5)");
+                    Console.WriteLine(Responses.UserChoice);
                     // Try to get an int, if it's not an int tell the player that they need to try again.
                     try {
                         int playerChoice = Convert.ToInt32(Console.ReadLine());
 
                         // Checks if the input is out of bounds
                         if (playerChoice > 5) {
-                            Console.WriteLine("That wasn't 1, 2, 3, 4 or 5");
+                            Console.WriteLine(Responses.WrongChoice);
                         } else {
                             // Sees if there is a draw
                             if (playerChoice == computerChoiceNum + 1) {
@@ -78,28 +78,28 @@ namespace RockPaperScissors
                                 // So add 2 instead of 1
                                 mostUsedMove[computerChoiceNum] += 2;
                                 Console.ForegroundColor = ConsoleColor.Magenta;
-                                Console.WriteLine("\nWe drew!!");
+                                Console.WriteLine(Responses.Draw);
                                 Console.ForegroundColor = ConsoleColor.White;
                               // Otherwise check for user win possibilities
                             } else {
                                 if (playerChoice == 1 && computerChoiceNum == 2 || playerChoice == 1 && computerChoiceNum == 3) {
-                                    displayUserWin();
+                                    DisplayUserWin();
                                     playerScore++;
                                 } else if (playerChoice == 2 && computerChoiceNum == 0 || playerChoice == 2 && computerChoiceNum == 4) {
-                                    displayUserWin();
+                                    DisplayUserWin();
                                     playerScore++;
                                 } else if(playerChoice == 3 && computerChoiceNum == 4 || playerChoice == 3 && computerChoiceNum == 1) {
-                                    displayUserWin();
+                                    DisplayUserWin();
                                     playerScore++;
                                 } else if (playerChoice == 4 && computerChoiceNum == 1 || playerChoice == 4 && computerChoiceNum == 4) {
-                                    displayUserWin();
+                                    DisplayUserWin();
                                     playerScore++;
                                 } else if(playerChoice == 5 && computerChoiceNum == 0 || playerChoice == 5 && computerChoiceNum == 2) {
-                                    displayUserWin();
+                                    DisplayUserWin();
                                     playerScore++;
                                 } else {
                                     Console.ForegroundColor = ConsoleColor.Yellow;
-                                    Console.WriteLine("\nOne point to me!");
+                                    Console.WriteLine(Responses.ComputerWin);
                                     Console.ForegroundColor = ConsoleColor.White;
                                     computerScore++;
                                     // See if the computer has won
@@ -107,8 +107,8 @@ namespace RockPaperScissors
                                         someoneWon = true;
                                     } 
                                 }
-                                // After all checks display what the computer chose
-                                Console.WriteLine("I used {0}", choices[computerChoiceNum] + "\n");
+                                // After all checks display what the computer chose // 
+                                Console.WriteLine("I used {0}", (Choices)computerChoiceNum + "\n");
                                 // See if the player has won
                                 if (playerScore == 3) {
                                     someoneWon = true;
@@ -123,7 +123,7 @@ namespace RockPaperScissors
                     }
                     // Tell the user that they didn't input the correct input
                     catch (Exception) {
-                        Console.WriteLine("That's not one of the options! Try again.");
+                        Console.WriteLine(Responses.WrongInput);
                     }
                 } while (someoneWon != true);
 
@@ -137,12 +137,12 @@ namespace RockPaperScissors
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("\n\nYOU WON!");
                     Console.WriteLine("Maybe I'll do better next time.\n");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("It took you only {0} rounds to win!",Convert.ToString(gameLength));
+                    Console.ForegroundColor = ConsoleColor.White; 
+                    Console.WriteLine("It took you only {0} rounds to win!", Convert.ToString(gameLength));
                 }
 
-                // Most used move
-                string mostUsedMoveString = getMostUsedMove(mostUsedMove);
+                // Most used move return  
+                string mostUsedMoveString = GetMostUsedMove(mostUsedMove);
                 Console.WriteLine("The most common move was: {0}", mostUsedMoveString);
 
                 // While looks for 'yes'
