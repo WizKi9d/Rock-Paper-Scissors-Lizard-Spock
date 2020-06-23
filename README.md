@@ -20,7 +20,7 @@ Added:
  * Static class responses for getting back response text
 
 
-QUESTIONS: (Explained in a way my girlfriends mum understood)
+*QUESTIONS: (Explained in a way my girlfriends mum understood)*
 
 **Purpose of an interface (in real english):**
 Let's imagine cooking a dinner.
